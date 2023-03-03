@@ -1,0 +1,45 @@
+enable
+conf terminal
+hostname .....
+enable password *****
+#create Vlan
+vlan 10 
+#name to vlan
+name ****
+exit
+#another one
+vlan 20 
+name ***
+exit
+# to show vlans
+show vlan
+
+#assign 1 interface to vlans
+
+interface fastethernat 0/1
+switchport mode access 
+switchport access vlan 10
+exit
+
+#assign multiple interfaces
+
+interface range fastethernet 0/2-10
+switchport mode access
+switchport access vlan 10
+exit
+
+# so on with vlan 20 and 30.
+
+
+# asign ip to vlan
+interface vlan 10
+ip address (enter ip address and  submask)
+exit
+
+# check if conf correct
+show ip interface brief
+
+# inter Vlan Routing
+ip routing
+
+ 
